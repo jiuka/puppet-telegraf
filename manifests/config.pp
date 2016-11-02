@@ -15,6 +15,15 @@
 #
 class telegraf::config {
 
+  $tags                      = $::telegraf::tags
+  $agent_hostname            = $::telegraf::agent_hostname
+  $outputs_influxdb_enabled  = $::telegraf::outputs_influxdb_enabled
+  $outputs_influxdb_urls     = $::telegraf::outputs_influxdb_urls
+  $outputs_influxdb_database = $::telegraf::outputs_influxdb_database
+  $outputs_influxdb_username = $::telegraf::outputs_influxdb_username
+  $outputs_influxdb_password = $::telegraf::outputs_influxdb_password
+  $version                   = $::telegraf::version
+
   file { $::telegraf::config_base_file:
     ensure  => file,
     content => template($::telegraf::config_template),
